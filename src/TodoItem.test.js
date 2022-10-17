@@ -21,10 +21,19 @@ describe('<TodoItem />', () => {
             button,
         };
     };
-    
+
     it('has span and button', ()=>{
         const {span, button} = setup();
         expact(span). toBeTruthy();
         expact(button). toBeTruthy();
     });
+
+    it('shows line-Through on sapn when done is true', () => {
+        const { span } = setup ({ todo : {...sampleTodo, done: true} });
+        expact(span).toHaveStyle('text-decoration: line-throungt;');
+    });
+
+    it('shows line-Through on sapn when done is true', () => {
+        const {span} = setup ({ todo : {...sampleTodo, done: false} });
+        expact(span).toHaveStyle('text-decoration: line-throungt;');
 });
